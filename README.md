@@ -1,10 +1,12 @@
 # MineSweeper_Automated
+Developed with IntelliJ.
+
 A simple implementaion of the classic game MineSweeper. Intended to work as a starting point to experiment with different algorithms for solving the game.
 
 Graphics resources used in the examples can be downloaded at icon8, if used in your implementation, be sure to add credits to the designers.
 
 # How to use
-In the project you will find an example of how to build a RandomSweeperBot. To create your own SweepreBot, just implement the interface SweeperBot and its methods. Simplest possible bot would look like this:
+In the project you will find an example of how to build a RandomSweeperBot. To create your own SweeperBot, just implement the interface SweeperBot and its methods. Simplest possible bot would look like this:
 
 ```
 package barefoot.sweepervariants;
