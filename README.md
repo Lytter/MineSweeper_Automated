@@ -3,13 +3,12 @@ A simple implementaion of the classic game MineSweeper. Intended to work as a st
 
 Graphics resources used in the examples can be downloaded at icon8, if used in your implementation, be sure to add credits to the designers.
 
-#How to use
+# How to use
 In the project you will find an example of how to build a RandomSweeperBot. To create your own SweepreBot, just implement the interface SweeperBot and its methods. Simplest possible bot would look like this:
 
+```
 package barefoot.sweepervariants;
-
 import barefoot.minesweeper.Constants;
-
 import java.util.Random;
 
 public class SimplestPossibleBot implements SweeperBot {
@@ -55,3 +54,4 @@ public class SimplestPossibleBot implements SweeperBot {
         MyGUISweeper.runAutomated(new SimplestPossibleBot());
     }
 }
+```
