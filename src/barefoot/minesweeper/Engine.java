@@ -107,8 +107,8 @@ public class Engine {
     /**
      * Reveals a location to the user. If that location has no adjecent bombs,
      * all surrounding locations are also revealed.
-     * @param x int column to reveal
-     * @param y int row to reveal
+     * @param x int row to reveal
+     * @param y int column to reveal
      * @param depth int internal recursion counter
      */
     private void sweepLocation(int x, int y, int depth) {
