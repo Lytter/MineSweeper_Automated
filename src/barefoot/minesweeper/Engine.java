@@ -107,8 +107,8 @@ public class Engine {
     /**
      * Reveals a location to the user. If that location has no adjecent bombs,
      * all surrounding locations are also revealed.
-     * @param x int column to reveal
-     * @param y int row to reveal
+     * @param x int row to reveal
+     * @param y int column to reveal
      * @param depth int internal recursion counter
      */
     private void sweepLocation(int x, int y, int depth) {
@@ -180,7 +180,7 @@ public class Engine {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (!BOOM)
-                    BOOM = gameMatrix[i][j] && playerRevealedMatrix[i][j] != null;
+                    BOOM = gameMatrix[i][j] && (playerRevealedMatrix[i][j] != null && playerRevealedMatrix[i][j] != Double.MAX_VALUE);
                 if (WON && !gameMatrix[i][j])
                     WON = playerRevealedMatrix[i][j] != null;
             }
@@ -238,5 +238,14 @@ public class Engine {
     }
     public GameStatistics getGameStatistics() {
         return gameStats;
+    }
+
+    public void placeFlag(int row, int col) {
+        if (playerRevealedMatrix == null)
+            playerRevealedMatrix = new Double[rows][cols];
+        if (playerRevealedMatrix[row][col] == null)
+            playerRevealedMatrix[row][col] = Double.MAX_VALUE;
+        else if (playerRevealedMatrix[row][col] == Double.MAX_VALUE)
+            playerRevealedMatrix[row][col] = null;
     }
 }

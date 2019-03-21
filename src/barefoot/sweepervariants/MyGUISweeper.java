@@ -57,7 +57,7 @@ public class MyGUISweeper {
 
     private void flagButton(int row, int col) {
         if (row >= difficulty[0] && col >= difficulty[1]
-        || row < 0 || col < 0) {
+                || row < 0 || col < 0) {
             handleGameLoop();
             return;
         }
@@ -69,6 +69,7 @@ public class MyGUISweeper {
         else
             bombLabel.setText("" + (Integer.valueOf(bombLabel.getText())
                     + 1));
+        engine.placeFlag(row, col);
         handleGameLoop();
     }
 
@@ -135,7 +136,7 @@ public class MyGUISweeper {
                             int type = b.updateType(Double.MAX_VALUE);
                             if (type == GroundButton.GROUND_FLAG)
                                 bombLabel.setText("" + (Integer.valueOf(bombLabel.getText())
-                                    - 1));
+                                        - 1));
                             else
                                 bombLabel.setText("" + (Integer.valueOf(bombLabel.getText())
                                         + 1));
