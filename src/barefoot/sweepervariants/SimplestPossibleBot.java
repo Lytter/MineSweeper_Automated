@@ -31,6 +31,7 @@ public class SimplestPossibleBot implements SweeperBot {
 
     /**
      * Implement to calculate the next action
+     * Do not make multiple calls to game.takeAutomatedAction(), only one.
      *
      * @param playerRevealedBoard Double[][] illustrating the gameboard.
      * @param game                an instance of the GUI
