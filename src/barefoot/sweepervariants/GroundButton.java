@@ -51,9 +51,11 @@ public class GroundButton extends JButton {
             else if (type == 0) groundType = GROUND_BOMB;
             else if (type == Double.MAX_VALUE) groundType = GROUND_FLAG;
         }
+
         if (groundType == GROUND_FLAG)
             if (originalType == GROUND_FLAG)
                 groundType = GROUND_GRASS;
+
         if (originalType == groundType)
             return groundType;
         Image img;

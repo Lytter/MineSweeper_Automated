@@ -63,14 +63,21 @@ public class MyGUISweeper {
         }
         GroundButton button = (GroundButton) mineField.getComponent(row * difficulty[0] + col);
         int type = button.updateType(Double.MAX_VALUE);
-        if (type == GroundButton.GROUND_FLAG)
-            bombLabel.setText("" + (Integer.valueOf(bombLabel.getText())
-                    - 1));
-        else
-            bombLabel.setText("" + (Integer.valueOf(bombLabel.getText())
-                    + 1));
         engine.placeFlag(row, col);
+        countBombs();
         handleGameLoop();
+    }
+
+    private void countBombs() {
+        int bombs = difficulty[2];
+        Double[][] board = engine.getPlayerRevealedMatrix();
+        for (int i = 0; i < difficulty[0]; i++) {
+            for (int j = 0; j < difficulty[1]; j++) {
+                if (board[i][j] != null && board[i][j] == Double.MAX_VALUE)
+                    bombs--;
+            }
+        }
+        bombLabel.setText("" + Integer.valueOf(bombs));
     }
 
     public MyGUISweeper(SweeperBot bot) {
@@ -134,12 +141,11 @@ public class MyGUISweeper {
                             return;
                         if (SwingUtilities.isRightMouseButton(e)) {
                             int type = b.updateType(Double.MAX_VALUE);
-                            if (type == GroundButton.GROUND_FLAG)
-                                bombLabel.setText("" + (Integer.valueOf(bombLabel.getText())
-                                        - 1));
-                            else
-                                bombLabel.setText("" + (Integer.valueOf(bombLabel.getText())
-                                        + 1));
+                            int pos = Arrays.asList(mineField.getComponents()).indexOf(b);
+                            int row = pos / difficulty[1];
+                            int col = pos % difficulty[1];
+                            engine.placeFlag(row, col);
+                            countBombs();
                         }
                     }
                 });
@@ -203,7 +209,10 @@ public class MyGUISweeper {
             int row = i / difficulty[1];
             int col = i % difficulty[1];
             Double type = matrix[row][col];
-            b.updateType(type);
+            if (type != null && type == Double.MAX_VALUE)
+                b.updateType(null);
+            else
+                b.updateType(type);
         }
     }
 
