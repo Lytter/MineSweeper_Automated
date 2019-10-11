@@ -20,6 +20,10 @@ public interface SweeperBot {
      * Implement to calculate the next action
      * Do not make multiple calls to game.takeAutomatedAction(), only one.
      * @param playerRevealedBoard Double[][] illustrating the gameboard.
+     *                            null -> not sweeped yet
+     *                            0.0 -> visual bomb
+     *                            Double.MAX -> Flagged position
+     *                            1-8 -> Number of adjacent bombs
      * @param game an instance of the GUI
      */
     void takeAutomatedAction(Double[][] playerRevealedBoard, MyGUISweeper game);

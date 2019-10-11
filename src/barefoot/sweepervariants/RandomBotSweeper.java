@@ -4,6 +4,10 @@ import java.util.Random;
 
 import static barefoot.minesweeper.Constants.*;
 
+/**
+ * This bot will randomly sweep locations and sometimes flag a location
+ * Totally useless at playing the game, but informative in how to make a bot.
+ */
 public class RandomBotSweeper implements SweeperBot{
     public static void main(String[] args) {
         MyGUISweeper.runAutomated(new RandomBotSweeper());

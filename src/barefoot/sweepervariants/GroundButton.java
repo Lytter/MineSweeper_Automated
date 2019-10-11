@@ -16,7 +16,10 @@ public class GroundButton extends JButton {
     private int height;
     private int width;
 
-    private static Image grass, bomb, flag, ballon;
+    private static Image grass;
+    private static Image bomb;
+    private static Image flag;
+    private static Image empty;
 
     GroundButton(Double type, int size) {
         loadResources();
@@ -33,7 +36,7 @@ public class GroundButton extends JButton {
                 grass = ImageIO.read(getClass().getResource("/grass.png"));
                 flag = ImageIO.read(getClass().getResource("/flag.png"));
                 bomb = ImageIO.read(getClass().getResource("/mine8.png"));
-                ballon = ImageIO.read(getClass().getResource("/balloons.png"));
+                empty = ImageIO.read(getClass().getResource("/empty.png"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -42,8 +45,6 @@ public class GroundButton extends JButton {
 
     int updateType(Double type) {
         int originalType = groundType;
-        if (originalType == GROUND_FLAG && type == null)
-            return groundType;
         if (type == null) groundType = GROUND_GRASS;
         else {
             if (type >= 1.0 && type < Double.MAX_VALUE) groundType = GROUND_ADJECENT;
@@ -51,10 +52,6 @@ public class GroundButton extends JButton {
             else if (type == 0) groundType = GROUND_BOMB;
             else if (type == Double.MAX_VALUE) groundType = GROUND_FLAG;
         }
-
-        if (groundType == GROUND_FLAG)
-            if (originalType == GROUND_FLAG)
-                groundType = GROUND_GRASS;
 
         if (originalType == groundType)
             return groundType;
@@ -64,7 +61,7 @@ public class GroundButton extends JButton {
                 img = grass;
                 break;
             case GROUND_CLEAR:
-                img = ballon;
+                img = empty;
                 break;
             case GROUND_BOMB:
                 img = bomb;

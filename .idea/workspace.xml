@@ -2,31 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b34b8599-b41a-4f26-8775-46e4cc5fd239" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/empty.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Constants.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Engine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Engine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/GameStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/GameStatistics.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/GroundButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/GroundButton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/MyGUISweeper$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/MyGUISweeper$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/MyGUISweeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/MyGUISweeper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/RandomBotSweeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/RandomBotSweeper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SimplestPossibleBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SimplestPossibleBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SweeperBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SweeperBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/core/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/com/intellij/uiDesigner/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,40 +24,6 @@
         <option value="Class" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>engine.getPlayerRevealedMatrix();</find>
-      <find>pos</find>
-      <find>getPlayerRevealedMatrix</find>
-      <find>matrix[pos</find>
-      <find>cop</find>
-      <find>diff</find>
-      <find>Arrays.asList</find>
-      <find>IN</find>
-      <find>add</find>
-      <find>vi</find>
-      <find>new</find>
-      <find>48</find>
-      <find>font</find>
-      <find>take</find>
-      <find>takeA</find>
-      <find>.png</find>
-      <find>ImageIO</find>
-      <find>playAgain</find>
-      <find>flag</find>
-      <find>updateType</find>
-      <find>newG</find>
-      <find>bombL</find>
-      <find>grass</find>
-      <find>bombLabel</find>
-      <find>gameStat</find>
-      <find>setText</find>
-      <find>gameStats</find>
-      <find>place</find>
-      <find>if(playerRevealedMatrix == null)</find>
-      <find>countBombs</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -117,7 +65,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MySweeperBot">
+  <component name="RunManager" selected="Application.RandomBotSweeper">
     <configuration name="MyGUISweeper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="barefoot.sweepervariants.MyGUISweeper" />
       <module name="GyaMineSweeper" />
@@ -192,10 +140,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MySweeperBot" />
-        <item itemvalue="Application.MyGUISweeper" />
         <item itemvalue="Application.RandomBotSweeper" />
+        <item itemvalue="Application.MyGUISweeper" />
         <item itemvalue="Application.SimplestPossibleBot" />
+        <item itemvalue="Application.MySweeperBot" />
         <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
@@ -226,7 +174,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

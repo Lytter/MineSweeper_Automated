@@ -4,6 +4,11 @@ import barefoot.minesweeper.Constants;
 
 import java.util.Random;
 
+/**
+ * This bot will play one game on EASY difficulty.
+ * All sweeps are random. Utterly useless at paying the game, but
+ * might be a good starting point for a first project.
+ */
 public class SimplestPossibleBot implements SweeperBot {
     /**
      * Implement to set Difficulty for the game
@@ -39,9 +44,13 @@ public class SimplestPossibleBot implements SweeperBot {
     @Override
     public void takeAutomatedAction(Double[][] playerRevealedBoard, MyGUISweeper game) {
         Random random = new Random();
-        int row = random.nextInt(10);
-        int col = random.nextInt(10);
-        game.takeAutomatedAction(Constants.ACTION_SWEEP,row,col);
+        int row = random.nextInt(Constants.GAME_EASY[1]);
+        int col = random.nextInt(Constants.GAME_EASY[1]);
+        if (random.nextInt(9)%2 == 1)
+            game.takeAutomatedAction(Constants.ACTION_SWEEP,row,col);
+        else
+            game.takeAutomatedAction(Constants.ACTION_FLAG, row, col);
+        System.out.println(game.toString(Constants.PLAYER_MATRIX));
     }
 
     public static void main(String[] args) {

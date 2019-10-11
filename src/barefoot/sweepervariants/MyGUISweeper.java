@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import static barefoot.minesweeper.Constants.*;
+import static barefoot.sweepervariants.GroundButton.GROUND_FLAG;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class MyGUISweeper {
@@ -24,8 +25,7 @@ public class MyGUISweeper {
 
     private Engine engine;
     private int[] difficulty;
-    private int buttonSize = 48;
-    private Image grass, bomb, ballon, flag;
+    private Image bomb, ballon;
     //BOT
     private SweeperBot automationBot;
 
@@ -61,8 +61,6 @@ public class MyGUISweeper {
             handleGameLoop();
             return;
         }
-        GroundButton button = (GroundButton) mineField.getComponent(row * difficulty[0] + col);
-        int type = button.updateType(Double.MAX_VALUE);
         engine.placeFlag(row, col);
         countBombs();
         handleGameLoop();
@@ -77,13 +75,11 @@ public class MyGUISweeper {
                     bombs--;
             }
         }
-        bombLabel.setText("" + Integer.valueOf(bombs));
+        bombLabel.setText("" + bombs);
     }
 
     public MyGUISweeper(SweeperBot bot) {
         try {
-            grass = ImageIO.read(getClass().getResource("/grass.png"));
-            flag = ImageIO.read(getClass().getResource("/flag.png"));
             bomb = ImageIO.read(getClass().getResource("/mine8.png"));
             ballon = ImageIO.read(getClass().getResource("/balloons.png"));
         } catch (IOException e) {
@@ -125,7 +121,7 @@ public class MyGUISweeper {
     }
 
     private void repaintGUI() {
-        buttonSize = difficulty[0] == 9 ? 48 : 35;
+        int buttonSize = difficulty[0] == 9 ? 48 : 35;
         mineField.removeAll();
         mineField.setPreferredSize(new Dimension(difficulty[1] * buttonSize + 10, difficulty[0] * buttonSize + 25));
         Double[][] matrix = engine.getPlayerRevealedMatrix();
@@ -140,19 +136,21 @@ public class MyGUISweeper {
                         if (engine.getGameStatus() != GAME_INPROGRESS)
                             return;
                         if (SwingUtilities.isRightMouseButton(e)) {
-                            int type = b.updateType(Double.MAX_VALUE);
                             int pos = Arrays.asList(mineField.getComponents()).indexOf(b);
                             int row = pos / difficulty[1];
                             int col = pos % difficulty[1];
                             engine.placeFlag(row, col);
                             countBombs();
+                            refreshAllButtons();
+                            //mineField.revalidate();
+                            //mineField.repaint();
                         }
                     }
                 });
                 b.addActionListener((e) -> {
                     if (engine.getGameStatus() != GAME_INPROGRESS)
                         return;
-                    if (b.groundType != GroundButton.GROUND_GRASS && b.groundType != GroundButton.GROUND_FLAG)
+                    if (b.groundType != GroundButton.GROUND_GRASS && b.groundType != GROUND_FLAG)
                         return;
                     int pos = Arrays.asList(mineField.getComponents()).indexOf(b);
                     int row = pos / difficulty[1];
@@ -209,10 +207,7 @@ public class MyGUISweeper {
             int row = i / difficulty[1];
             int col = i % difficulty[1];
             Double type = matrix[row][col];
-            if (type != null && type == Double.MAX_VALUE)
-                b.updateType(null);
-            else
-                b.updateType(type);
+            b.updateType(type);
         }
     }
 
@@ -234,6 +229,23 @@ public class MyGUISweeper {
         frame.setContentPane(myForm.mainPanel);
         //Visa programfönstret på skärmen
         frame.setVisible(true);
+    }
+
+    /**
+     * Stringify the gameboard
+     * @param matrix int to specify parts of the gameboard, use matrix constants from Constants
+     * @return String representation of some aspect of the gameboard
+     */
+    public String toString(int matrix) {
+        return engine.stringifyMatrix(matrix);
+    }
+
+    /**
+     * Stringify all aspects of the gameboard
+     * @return String representing the state of the gameboard
+     */
+    public String toString() {
+        return engine.toString();
     }
 
     public static void main(String[] args) {
