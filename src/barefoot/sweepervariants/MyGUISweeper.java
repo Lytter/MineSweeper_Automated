@@ -58,11 +58,13 @@ public class MyGUISweeper {
     private void flagButton(int row, int col) {
         if (row >= difficulty[0] && col >= difficulty[1]
                 || row < 0 || col < 0) {
+            refreshAllButtons();
             handleGameLoop();
             return;
         }
         engine.placeFlag(row, col);
         countBombs();
+        refreshAllButtons();
         handleGameLoop();
     }
 
