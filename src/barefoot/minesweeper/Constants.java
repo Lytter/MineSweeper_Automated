@@ -27,9 +27,4 @@ public class Constants {
     public static int[] GAME_HARD = {16, 30, 99};
     public static int ACTION_SWEEP = 100;
     public static int ACTION_FLAG = 200;
-
-    //Constants for positions on playerRevealedBoard
-    public static Double STATUS_UNKNOWN = null;
-    public static Double STATUS_FLAGGED = Double.MAX_VALUE;
-    public static Double STATUS_CLEAR = -1d;
 }
