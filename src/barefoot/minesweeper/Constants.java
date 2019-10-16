@@ -19,7 +19,7 @@ public class Constants {
     //Constants for SweeperBot implementations
     public static final int maxRounds = 20;
     public static final int waitForNextRound = 1000;
-    public static final int waitForNextMove = 200;
+    public static final int waitForNextMove = 2000;
 
     //Constants for handling of MinesweeperGUI
     public static int[] GAME_EASY = {9, 9, 10};
@@ -27,4 +27,9 @@ public class Constants {
     public static int[] GAME_HARD = {16, 30, 99};
     public static int ACTION_SWEEP = 100;
     public static int ACTION_FLAG = 200;
+
+    //Constants for positions on playerRevealedBoard
+    public static Double STATUS_UNKNOWN = null;
+    public static Double STATUS_FLAGGED = Double.MAX_VALUE;
+    public static Double STATUS_CLEAR = -1d;
 }
