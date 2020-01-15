@@ -1,8 +1,8 @@
 package barefoot.minesweeper;
 
-import java.util.Arrays;
-import java.util.Random;
-import java.util.Stack;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 import static barefoot.minesweeper.Constants.*;
 
@@ -83,15 +83,56 @@ public class Engine {
      */
     private boolean[][] generateGameMatrix(int matrixRows, int matrixCols, int bombs) {
         boolean[][] matrix = new boolean[matrixRows][matrixCols];
-        for (int i = 0; i < bombs; i++) {
-            int col, row;
-            do {
-                col = new Random().nextInt(matrixRows);
-                row = new Random().nextInt(matrixCols);
-            }while(matrix[col][row]);
-            matrix[col][row] = true;
+        try {
+            Scanner scanner = new Scanner(new File(getTestFileName(matrixCols)));
+            loadTestFile(scanner, matrix);
+        } catch (FileNotFoundException | InputMismatchException missingTestFile) {
+            if(!getTestFileName(matrixCols).equalsIgnoreCase("")) {
+                System.err.println("Missing or erronious testfile:");
+                System.err.println(missingTestFile);
+            }
+            for (int i = 0; i < bombs; i++) {
+                int col, row;
+                do {
+                    col = new Random().nextInt(matrixRows);
+                    row = new Random().nextInt(matrixCols);
+                }while(matrix[col][row]);
+                matrix[col][row] = true;
+            }
         }
         return matrix;
+    }
+
+    private String getTestFileName(int matrixCols) {
+        if (matrixCols == GAME_EASY[1])
+            return CUSTOM_BOARD_FILE_EASY;
+        else if (matrixCols == GAME_MEDIUM[1])
+            return CUSTOM_BOARD_FILE_MEDIUM;
+        else
+            return CUSTOM_BOARD_FILE_HARD;
+    }
+
+    private void loadTestFile(Scanner scanner, boolean[][] matrix) {
+        int rows = 0;
+        while(scanner.hasNextLine()) {
+            char[] row = scanner.nextLine().toCharArray();
+            if(new String(row).trim().startsWith("#") || row.length == 0)
+                continue;
+            try {
+                if (row.length == matrix[rows].length) {
+                    for (int i = 0; i < row.length; i++) {
+                        matrix[rows][i] = row[i] == '*';
+                    }
+                } else
+                    throw new InputMismatchException(String.format("Error at row %d, -> %s", rows, new String(row)));
+            } catch (ArrayIndexOutOfBoundsException wrongNumberOfRows) {
+                rows++;
+                break;
+            }
+            rows++;
+        }
+        if (rows != matrix.length)
+            throw new InputMismatchException(String.format("Error, wrong number of rows: %d", rows));
     }
 
     /**

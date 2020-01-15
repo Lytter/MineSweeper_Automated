@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b34b8599-b41a-4f26-8775-46e4cc5fd239" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/res/empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/Exempel_1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Engine.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,12 +23,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="74" />
-    <option name="y" value="304" />
-    <option name="width" value="1378" />
-    <option name="height" value="692" />
   </component>
   <component name="ProjectId" id="1S2evTznNoT6bUkq4SvN4TdnfOR" />
   <component name="PropertiesComponent">
@@ -65,7 +55,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RandomBotSweeper">
+  <component name="RunManager" selected="Application.Exempel_1">
+    <configuration name="Exempel_1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="barefoot.sweepervariants.Exempel_1" />
+      <module name="GyaMineSweeper" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="barefoot.sweepervariants.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MyGUISweeper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="barefoot.sweepervariants.MyGUISweeper" />
       <module name="GyaMineSweeper" />
@@ -118,33 +121,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="barefoot.sweepervariants.test" />
-      <module name="GyaMineSweeper" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="barefoot.sweepervariants.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.MyGUISweeper" />
       <item itemvalue="Application.RandomBotSweeper" />
-      <item itemvalue="Application.test" />
       <item itemvalue="Application.SimplestPossibleBot" />
       <item itemvalue="Application.MySweeperBot" />
+      <item itemvalue="Application.Exempel_1" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Exempel_1" />
+        <item itemvalue="Application.SimplestPossibleBot" />
         <item itemvalue="Application.RandomBotSweeper" />
         <item itemvalue="Application.MyGUISweeper" />
-        <item itemvalue="Application.SimplestPossibleBot" />
         <item itemvalue="Application.MySweeperBot" />
-        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>

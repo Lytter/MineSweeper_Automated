@@ -27,4 +27,9 @@ public class Constants {
     public static int[] GAME_HARD = {16, 30, 99};
     public static int ACTION_SWEEP = 100;
     public static int ACTION_FLAG = 200;
+
+    //Constants for custom board
+    public static String CUSTOM_BOARD_FILE_EASY = "src//testBoardEasy.txt"; //file should be placed in src folder, * for bomb, x for clear
+    public static String CUSTOM_BOARD_FILE_MEDIUM = ""; //file should be placed in src folder, * for bomb, x for clear
+    public static String CUSTOM_BOARD_FILE_HARD = ""; //file should be placed in src folder, * for bomb, x for clear
 }
