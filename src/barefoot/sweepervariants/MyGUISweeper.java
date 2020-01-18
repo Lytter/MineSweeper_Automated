@@ -229,6 +229,8 @@ public class MyGUISweeper {
         MyGUISweeper myForm = new MyGUISweeper(automated);
         //Lägg in din panel i programfönstret
         frame.setContentPane(myForm.mainPanel);
+        //Lägg in en icon för programmet
+        frame.setIconImage(myForm.bomb);
         //Visa programfönstret på skärmen
         frame.setVisible(true);
     }
