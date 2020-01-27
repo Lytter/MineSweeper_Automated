@@ -19,7 +19,7 @@ public class Constants {
     //Constants for SweeperBot implementations
     public static final int maxRounds = 20;
     public static final int waitForNextRound = 1;
-    public static final int waitForNextMove = 500;
+    public static final int waitForNextMove = 1;
 
     //Constants for handling of MinesweeperGUI
     public static int[] GAME_EASY = {9, 9, 10};

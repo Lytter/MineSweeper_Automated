@@ -11,22 +11,24 @@ import static barefoot.minesweeper.Constants.*;
  * Basic bot that can safely sweep and flag all positions
  * that can be calculated with a brute force algorithm.
  * Goal:
- *      a, Minimize number of rounds.
- *      b, Minimize processing times
+ * a, Minimize number of rounds.
+ * b, Minimize processing times
  * Things to concider:
  * 1. Better strategies for random sweep
- *      a, Optimal start position?
- *      b, Calcululation of probabilities for each unswept location
- *      c, Estimation of new location with best potential for more information
- *      d, ...
+ * a, Optimal start position?
+ * b, Calcululation of probabilities for each unswept location
+ * c, Estimation of new location with best potential for more information
+ * d, ...
  * 2. Identification of patterns
- *      a, Identify common patterns
- *      b, Find strategies to reduce processing time for identification
- *      c, ...
+ * a, Identify common patterns
+ * b, Find strategies to reduce processing time for identification
+ * c, ...
  * 3. Evaluate performance on all three game difficulties.
  */
 public class BasicSweeperBot implements SweeperBot {
     private int gameCounter = 0;
+    private int antalvinster = 0;
+    private  int antalförluster = 0;
 
     /**
      * Implement to set Difficulty for the game
@@ -49,8 +51,15 @@ public class BasicSweeperBot implements SweeperBot {
     @Override
     public boolean playAgain(MyGUISweeper game) {
         System.out.println("GAME DONE");
+        if (game.getGameStatistics().gameStatus == GAME_WON)
+            antalvinster++;
+        else
+            antalförluster++;
+        double winrate = (double) antalvinster / (gameCounter + 1) ;
+        System.out.printf("Winrate: %.2f\n", winrate);
+        System.out.printf("Antal spel: %d\n", gameCounter);
         System.out.println(game.getGameStatistics().toString());
-        return ++gameCounter < 100;
+        return ++gameCounter <1000;
     }
 
     /**
@@ -97,18 +106,19 @@ public class BasicSweeperBot implements SweeperBot {
      * find a suitable location to sweep. If no such location can be found,
      * the bot will try to find a suitable location to flag. If no such location
      * can be found, the bot will abstain from action.
+     *
      * @param game                an instance of the GUI
      * @param playerRevealedBoard Double[][] illustrating the gameboard.
      *                            null -> not sweeped yet
      *                            0.0 -> visual bomb
      *                            Double.MAX -> Flagged position
      *                            1-8 -> Number of adjacent bombs
-     * @param location Point to analyze
+     * @param location            Point to analyze
      * @return boolean telling the caller if an action could be performed
      */
     private boolean takeSafeBasicActionIfPossible(MyGUISweeper game, Double[][] playerRevealedBoard, Point location) {
         Double cellValue = playerRevealedBoard[location.x][location.y];
-        if(cellValue == null || cellValue < 1 || cellValue > 8)
+        if (cellValue == null || cellValue < 1 || cellValue > 8)
             return false;
         Point nextActionLocation = new Point(-1, 0);
 
@@ -129,6 +139,7 @@ public class BasicSweeperBot implements SweeperBot {
     /**
      * Gets the next location in the matrix, following the supplied
      * startLocation
+     *
      * @param startLocation Point in the matrix to use for calculation
      *                      of next location.
      * @return Point in the matrix for the location following the startLocation
@@ -145,16 +156,17 @@ public class BasicSweeperBot implements SweeperBot {
      * An attempt is made to find the next location to flag or sweep. A sweepable location can be found
      * if "flagedBombsOnly" is TRUE, else a position to flag can be found.
      * If no safe location can be found, nextLocation will have a negative value for its x-position.
+     *
      * @param playerRevealedBoard Double[][] illustrating the gameboard.
-     *      *                            null -> not sweeped yet
-     *      *                            0.0 -> visual bomb
-     *      *                            Double.MAX -> Flagged position
-     *      *                            1-8 -> Number of adjacent bombs
-     * @param location Point to be analyzed
-     * @param flagedBombsOnly boolean to indicate if sweepable locations (TRUE)
-     *                        or locations to flag should be searched for.
-     * @param nextLocation Point with a safe position to take action on. If x-value is negativ,
-     *                     no safe location could be found.
+     *                            *                            null -> not sweeped yet
+     *                            *                            0.0 -> visual bomb
+     *                            *                            Double.MAX -> Flagged position
+     *                            *                            1-8 -> Number of adjacent bombs
+     * @param location            Point to be analyzed
+     * @param flagedBombsOnly     boolean to indicate if sweepable locations (TRUE)
+     *                            or locations to flag should be searched for.
+     * @param nextLocation        Point with a safe position to take action on. If x-value is negativ,
+     *                            no safe location could be found.
      */
     private void findNextSafeBasicActionLocation(Double[][] playerRevealedBoard, Point location, boolean flagedBombsOnly, Point nextLocation) {
         int potentialBombs = 0;
@@ -168,8 +180,7 @@ public class BasicSweeperBot implements SweeperBot {
                     if (playerRevealedBoard[k][l] == null) {
                         firstFoundActionableLocation = new Point(k, l);
                         potentialBombs = flagedBombsOnly ? potentialBombs : potentialBombs + 1;
-                    }
-                    else
+                    } else
                         potentialBombs++;
                 }
             }
