@@ -19,7 +19,7 @@ public class Constants {
     //Constants for SweeperBot implementations
     public static final int maxRounds = 20;
     public static final int waitForNextRound = 1;
-    public static final int waitForNextMove = 1;
+    public static final int waitForNextMove = 1000;
 
     //Constants for handling of MinesweeperGUI
     public static int[] GAME_EASY = {9, 9, 10};
@@ -29,7 +29,7 @@ public class Constants {
     public static int ACTION_FLAG = 200;
 
     //Constants for custom board
-    public static String CUSTOM_BOARD_FILE_EASY = ""; //"src//testBoardEasy.txt"; //file should be placed in src folder, * for bomb, x for clear
+    public static String CUSTOM_BOARD_FILE_EASY = "src//testBoardEasy.txt";  //file should be placed in src folder, * for bomb, x for clear
     public static String CUSTOM_BOARD_FILE_MEDIUM = ""; //file should be placed in src folder, * for bomb, x for clear
     public static String CUSTOM_BOARD_FILE_HARD = ""; //file should be placed in src folder, * for bomb, x for clear
 }

@@ -28,7 +28,7 @@ import static barefoot.minesweeper.Constants.*;
 public class BasicSweeperBot implements SweeperBot {
     private int gameCounter = 0;
     private int antalvinster = 0;
-    private  int antalförluster = 0;
+    private int antalförluster = 0;
 
     /**
      * Implement to set Difficulty for the game
@@ -53,13 +53,14 @@ public class BasicSweeperBot implements SweeperBot {
         System.out.println("GAME DONE");
         if (game.getGameStatistics().gameStatus == GAME_WON)
             antalvinster++;
+            //Antal förluster används inte nu men den kanske kan användas till något senare, lika bra att ha kvar den.
         else
             antalförluster++;
-        double winrate = (double) antalvinster / (gameCounter + 1) ;
-        System.out.printf("Winrate: %.2f\n", winrate);
+        double winrate = (double) antalvinster / (gameCounter + 1);
+        System.out.printf("Winrate: %.4f\n", winrate);
         System.out.printf("Antal spel: %d\n", gameCounter);
         System.out.println(game.getGameStatistics().toString());
-        return ++gameCounter <1000;
+        return ++gameCounter < 1000;
     }
 
     /**
@@ -88,6 +89,26 @@ public class BasicSweeperBot implements SweeperBot {
                 return;
             startLocation = getNextLocation(startLocation);
         } while (startLocation != null);
+
+        //Hur hittar jag ett mönster?
+        //Var ska jag starta?
+        //1,2,1
+
+        for (int i = 0; i < getDifficulty()[0]; i++) {
+            for (int j = 0; j < getDifficulty()[0]; j++) {
+                if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == 1)
+                    if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == 2)
+                        if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == 1) {
+                            System.out.println("nice");
+                            game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+                            return;
+                        }
+
+            }
+
+
+        }
+        // Hitta en etta, kontrollera om närsta är tvåa, kontrollera om nästa är en etta
 
         //This is the last resort when we are desperate for progression
         System.out.println("TIME FOR RANDOM SWEEP!!!");
@@ -134,6 +155,7 @@ public class BasicSweeperBot implements SweeperBot {
             return true;
         }
         return false;
+
     }
 
     /**
@@ -192,6 +214,7 @@ public class BasicSweeperBot implements SweeperBot {
         }
         nextLocation.x = -1;
     }
+
 
     public static void main(String[] args) {
         MyGUISweeper.runAutomated(new BasicSweeperBot());
