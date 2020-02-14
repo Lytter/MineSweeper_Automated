@@ -1,0 +1,15 @@
+# To use this test file, edit constant "CUSTOM_BOARD_FILE" in Constants.java
+# Set value to this file name
+#########
+# 'x' represents a clear position
+# '*' represents a bomb
+
+**x*x*xx*
+*xxxxxx**
+xxxxxxxxx
+xxxxxxxxx
+xxxxxxxxx
+xxxxxxxxx
+xxxxxxxxx
+*xxxxxxxx
+*xxxxxxxx
