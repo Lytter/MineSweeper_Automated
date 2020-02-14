@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b34b8599-b41a-4f26-8775-46e4cc5fd239" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" afterDir="false" />
-    </list>
+    <list default="true" id="b34b8599-b41a-4f26-8775-46e4cc5fd239" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +189,13 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1581609315966</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="1-2-1 mönstret fungerar. Rad 97. Måste lägga till så det fungerar åt alla &quot;håll&quot;.">
+      <created>1581688828773</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1581688828773</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
