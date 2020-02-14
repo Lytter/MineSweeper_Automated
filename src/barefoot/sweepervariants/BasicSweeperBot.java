@@ -94,11 +94,16 @@ public class BasicSweeperBot implements SweeperBot {
         //Var ska jag starta?
         //1,2,1
 
+        /**
+         * A small step for man, a giant leap for mankind :O
+         */
+
+        //Väldigt omständigt, vi borde fixa metoder typ.
         for (int i = 0; i < getDifficulty()[0]; i++) {
             for (int j = 0; j < getDifficulty()[0]; j++) {
-                if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == 1)
-                    if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == 2)
-                        if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == 1) {
+                if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i + 1][j] != null)
+                    if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == 2 && playerRevealedBoard[i + 1][j] != null)
+                        if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == 1 && playerRevealedBoard[i + 1][j] != null) {
                             System.out.println("nice");
                             game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
                             return;
