@@ -38,7 +38,7 @@ public class BasicSweeperBot implements SweeperBot {
      */
     @Override
     public int[] getDifficulty() {
-        return GAME_EASY;
+        return GAME_HARD;
     }
 
     /**
@@ -101,18 +101,31 @@ public class BasicSweeperBot implements SweeperBot {
         //Väldigt omständigt, vi borde fixa metoder typ.
         for (int i = 0; i < getDifficulty()[0]; i++) {
             for (int j = 0; j < getDifficulty()[0]; j++) {
-                if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i + 1][j] != null)
-                    if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == 2 && playerRevealedBoard[i + 1][j] != null)
-                        if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == 1 && playerRevealedBoard[i + 1][j] != null) {
+                if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == 1 && j + 1 < getDifficulty()[0]) {
+                    if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == 2 && j + 1 < getDifficulty()[0]) {
+                        if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == 1 && j + 2 < getDifficulty()[0]) {
                             System.out.println("nice");
-                            game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
-                            return;
+                            if (i - 1 >= 0 && j + 1 < getDifficulty()[0]) {
+                                if (playerRevealedBoard[i-1][j+1] == null) {
+                                    System.out.printf("rad: %d, col: %d",i - 1, j + 1);
+                                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+                                    return;
+                                }
+                            }
+                            if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
+                                if (playerRevealedBoard[i+1][j+1] == null) {
+                                    System.out.printf("rad: %d, col: %d",i + 1, j + 1);
+                                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
+                                    return;
+                                }
+                            }
+
                         }
-
+                    }
+                }
             }
-
-
         }
+
         // Hitta en etta, kontrollera om närsta är tvåa, kontrollera om nästa är en etta
 
         //This is the last resort when we are desperate for progression
