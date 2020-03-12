@@ -43,7 +43,7 @@ public class BasicSweeperBot implements SweeperBot {
      */
     @Override
     public int[] getDifficulty() {
-        return GAME_HARD;
+        return GAME_HARD   ;
     }
 
     /**
@@ -95,13 +95,24 @@ public class BasicSweeperBot implements SweeperBot {
                     if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == mönster[0] && j + 1 < getDifficulty()[0]) {
                         if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == mönster[1] && j + 1 < getDifficulty()[0]) {
                             if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == mönster[2] && j + 2 < getDifficulty()[0]) {
-                                if (takeHorizontalPatterAction(playerRevealedBoard, i, j, game))
+                                if (takeHorizontalPatternAction(playerRevealedBoard, i, j, game))
                                     return;
                             }
                         }
                     }
-                }
+                    if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == mönster[0] && i + 1 < getDifficulty()[0]) {
+                        if (playerRevealedBoard[i+1][j] != null && playerRevealedBoard[i+1][j] == mönster[1] && i + 1 < getDifficulty()[0]) {
+                            if (playerRevealedBoard[i+2][j] != null && playerRevealedBoard[i+2][j] == mönster[2] && i + 2 < getDifficulty()[0]) {
+                                if (takeVerticalPatternAction(playerRevealedBoard, i, j, game))
+                                    return;
+                            }
+                        }
+                    }
+
+              }
             }
+
+
 
 
 
@@ -136,32 +147,29 @@ public class BasicSweeperBot implements SweeperBot {
         } while (playerRevealedBoard[row][col] != null);
         game.takeAutomatedAction(ACTION_SWEEP, row, col);
     }
-    private boolean takeHorizontalPatterAction(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
+
+    private boolean takeVerticalPatternAction(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
         //1,3,2 flaggar
-        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 3 && playerRevealedBoard[i][j + 2] == 2) {
-            if (i - 1 >= 0 && j + 2 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i-1][j+2] == null) {
-                    System.out.printf("rad: %d, col: %d",i - 1, j + 2);
-                    game.takeAutomatedAction(ACTION_FLAG, i - 1, j + 2);
-                    System.out.println("YEEE");
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i + 1][j] == 3 && playerRevealedBoard[i + 2][j] == 2) {
+            if (j - 1 >= 0 && i + 2 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i+2][j-1] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i + 2, j - 1);
                     return true;
                 }
             }
-            if (i + 1 < getDifficulty()[0] && j + 2 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i + 1][j + 2] == null) {
-                    System.out.printf("rad: %d, col: %d", i + 1, j + 2);
-                    game.takeAutomatedAction(ACTION_FLAG, i + 1, j + 2);
+            if (j + 1 < getDifficulty()[0] && i + 2 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i + 2][j + 1] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i + 2, j + 1);
                     return true;
                 }
             }
 
         }
         //1,2,1
-        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 2 && playerRevealedBoard[i][j + 2] == 1) {
-            if (i - 1 >= 0 && j + 1 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i - 1][j + 1] == null) {
-                    System.out.printf("rad: %d, col: %d", i - 1, j + 1);
-                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i+1][j] == 2 && playerRevealedBoard[i+2][j] == 1) {
+            if (j - 1 >= 0 && i + 1 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i + 1][j - 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j - 1);
                     return true;
 
 
@@ -169,12 +177,46 @@ public class BasicSweeperBot implements SweeperBot {
             }
             if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
                 if (playerRevealedBoard[i + 1][j + 1] == null) {
-                    System.out.printf("rad: %d, col: %d", i + 1, j + 1);
                     game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
                     return true;
 
 
 
+                }
+            }
+        }
+        return false;
+    }
+
+
+    private boolean takeHorizontalPatternAction(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
+        //1,3,2 flaggar
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 3 && playerRevealedBoard[i][j + 2] == 2) {
+            if (i - 1 >= 0 && j + 2 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i-1][j+2] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i - 1, j + 2);
+                    return true;
+                }
+            }
+            if (i + 1 < getDifficulty()[0] && j + 2 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i + 1][j + 2] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i + 1, j + 2);
+                    return true;
+                }
+            }
+        }
+        //1,2,1
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 2 && playerRevealedBoard[i][j + 2] == 1) {
+            if (i - 1 >= 0 && j + 1 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i - 1][j + 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+                    return true;
+                }
+            }
+            if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i + 1][j + 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
+                    return true;
                 }
             }
         }
