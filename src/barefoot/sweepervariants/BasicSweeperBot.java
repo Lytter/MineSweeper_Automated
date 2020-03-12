@@ -29,6 +29,11 @@ public class BasicSweeperBot implements SweeperBot {
     private int gameCounter = 0;
     private int antalvinster = 0;
     private int antalförluster = 0;
+    //För 3-mönster
+    private int[][] mönster = {
+            {1,2,1},
+            {1,3,2}
+    };
 
     /**
      * Implement to set Difficulty for the game
@@ -63,6 +68,8 @@ public class BasicSweeperBot implements SweeperBot {
         return ++gameCounter < 1000;
     }
 
+
+
     /**
      * Implement to calculate the next action
      * Do not make multiple calls to game.takeAutomatedAction(), only one.
@@ -82,6 +89,22 @@ public class BasicSweeperBot implements SweeperBot {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        for (int[] mönster : mönster)
+            for (int i = 0; i < getDifficulty()[0]; i++) {
+                for (int j = 0; j < getDifficulty()[0]; j++) {
+                    if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == mönster[0] && j + 1 < getDifficulty()[0]) {
+                        if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == mönster[1] && j + 1 < getDifficulty()[0]) {
+                            if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == mönster[2] && j + 2 < getDifficulty()[0]) {
+                                if (takeHorizontalPatterAction(playerRevealedBoard, i, j, game))
+                                    return;
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
 
         Point startLocation = new Point(0, 0);
         do {
@@ -96,35 +119,9 @@ public class BasicSweeperBot implements SweeperBot {
 
         /**
          * A small step for man, a giant leap for mankind :O
+         *
+         *
          */
-
-        //Väldigt omständigt, vi borde fixa metoder typ.
-        for (int i = 0; i < getDifficulty()[0]; i++) {
-            for (int j = 0; j < getDifficulty()[0]; j++) {
-                if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == 1 && j + 1 < getDifficulty()[0]) {
-                    if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == 2 && j + 1 < getDifficulty()[0]) {
-                        if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == 1 && j + 2 < getDifficulty()[0]) {
-                            System.out.println("nice");
-                            if (i - 1 >= 0 && j + 1 < getDifficulty()[0]) {
-                                if (playerRevealedBoard[i-1][j+1] == null) {
-                                    System.out.printf("rad: %d, col: %d",i - 1, j + 1);
-                                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
-                                    return;
-                                }
-                            }
-                            if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
-                                if (playerRevealedBoard[i+1][j+1] == null) {
-                                    System.out.printf("rad: %d, col: %d",i + 1, j + 1);
-                                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
-                                    return;
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
 
         // Hitta en etta, kontrollera om närsta är tvåa, kontrollera om nästa är en etta
 
@@ -138,6 +135,50 @@ public class BasicSweeperBot implements SweeperBot {
             col = random.nextInt(playerRevealedBoard[row].length);
         } while (playerRevealedBoard[row][col] != null);
         game.takeAutomatedAction(ACTION_SWEEP, row, col);
+    }
+    private boolean takeHorizontalPatterAction(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
+        //1,3,2 flaggar
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 3 && playerRevealedBoard[i][j + 2] == 2) {
+            if (i - 1 >= 0 && j + 2 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i-1][j+2] == null) {
+                    System.out.printf("rad: %d, col: %d",i - 1, j + 2);
+                    game.takeAutomatedAction(ACTION_FLAG, i - 1, j + 2);
+                    System.out.println("YEEE");
+                    return true;
+                }
+            }
+            if (i + 1 < getDifficulty()[0] && j + 2 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i + 1][j + 2] == null) {
+                    System.out.printf("rad: %d, col: %d", i + 1, j + 2);
+                    game.takeAutomatedAction(ACTION_FLAG, i + 1, j + 2);
+                    return true;
+                }
+            }
+
+        }
+        //1,2,1
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 2 && playerRevealedBoard[i][j + 2] == 1) {
+            if (i - 1 >= 0 && j + 1 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i - 1][j + 1] == null) {
+                    System.out.printf("rad: %d, col: %d", i - 1, j + 1);
+                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+                    return true;
+
+
+                }
+            }
+            if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
+                if (playerRevealedBoard[i + 1][j + 1] == null) {
+                    System.out.printf("rad: %d, col: %d", i + 1, j + 1);
+                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
+                    return true;
+
+
+
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -154,6 +195,7 @@ public class BasicSweeperBot implements SweeperBot {
      *                            1-8 -> Number of adjacent bombs
      * @param location            Point to analyze
      * @return boolean telling the caller if an action could be performed
+     *
      */
     private boolean takeSafeBasicActionIfPossible(MyGUISweeper game, Double[][] playerRevealedBoard, Point location) {
         Double cellValue = playerRevealedBoard[location.x][location.y];

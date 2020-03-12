@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b34b8599-b41a-4f26-8775-46e4cc5fd239" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Constants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/BasicSweeperBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/BasicSweeperBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/RandomBotSweeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/RandomBotSweeper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
