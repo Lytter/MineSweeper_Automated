@@ -28,11 +28,13 @@ import static barefoot.minesweeper.Constants.*;
 public class BasicSweeperBot implements SweeperBot {
     private int gameCounter = 0;
     private int antalvinster = 0;
-    private int antalförluster = 0;
-    //För 3-mönster
+    //Patterns
     private int[][] mönster = {
-            {1,2,1},
-            {1,3,2}
+            {1, 2, 1},
+            {1, 3, 2},
+            {1, 4},
+            {2, 5},
+            {3, 6}
     };
 
     /**
@@ -43,7 +45,7 @@ public class BasicSweeperBot implements SweeperBot {
      */
     @Override
     public int[] getDifficulty() {
-        return GAME_HARD   ;
+        return GAME_HARD;
     }
 
     /**
@@ -55,19 +57,23 @@ public class BasicSweeperBot implements SweeperBot {
      */
     @Override
     public boolean playAgain(MyGUISweeper game) {
-        System.out.println("GAME DONE");
-        if (game.getGameStatistics().gameStatus == GAME_WON)
-            antalvinster++;
-            //Antal förluster används inte nu men den kanske kan användas till något senare, lika bra att ha kvar den.
-        else
-            antalförluster++;
-        double winrate = (double) antalvinster / (gameCounter + 1);
-        System.out.printf("Winrate: %.4f\n", winrate);
-        System.out.printf("Antal spel: %d\n", gameCounter);
-        System.out.println(game.getGameStatistics().toString());
-        return ++gameCounter < 1000;
+        if (game.getGameStatistics().turnsTaken == 1) {
+            return true;
+        } else {
+            System.out.println("GAME DONE");
+            //if the game was won
+            if (game.getGameStatistics().gameStatus == GAME_WON){
+                // Add to antalvinster
+                antalvinster++;}
+            //calculate the winrate
+            double winrate = (double) antalvinster / (gameCounter + 1);
+            //Write the winrate
+            System.out.printf("Winrate: %.4f\n", winrate);
+            System.out.printf("Antal spel: %d\n", gameCounter);
+            System.out.println(game.getGameStatistics().toString());
+            return ++gameCounter < 500;
+        }
     }
-
 
 
     /**
@@ -89,32 +95,43 @@ public class BasicSweeperBot implements SweeperBot {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //Search for horizontal patterns containing 3 cells
         for (int[] mönster : mönster)
             for (int i = 0; i < getDifficulty()[0]; i++) {
                 for (int j = 0; j < getDifficulty()[0]; j++) {
                     if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == mönster[0] && j + 1 < getDifficulty()[0]) {
-                        if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == mönster[1] && j + 1 < getDifficulty()[0]) {
+                        if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == mönster[1] && mönster.length == 3) {
                             if (playerRevealedBoard[i][j + 2] != null && playerRevealedBoard[i][j + 2] == mönster[2] && j + 2 < getDifficulty()[0]) {
                                 if (takeHorizontalPatternAction(playerRevealedBoard, i, j, game))
                                     return;
                             }
                         }
                     }
+                    //Search for vertical patterns containing 3 cells
                     if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == mönster[0] && i + 1 < getDifficulty()[0]) {
-                        if (playerRevealedBoard[i+1][j] != null && playerRevealedBoard[i+1][j] == mönster[1] && i + 1 < getDifficulty()[0]) {
-                            if (playerRevealedBoard[i+2][j] != null && playerRevealedBoard[i+2][j] == mönster[2] && i + 2 < getDifficulty()[0]) {
+                        if (playerRevealedBoard[i + 1][j] != null && playerRevealedBoard[i + 1][j] == mönster[1] && mönster.length == 3) {
+                            if (playerRevealedBoard[i + 2][j] != null && playerRevealedBoard[i + 2][j] == mönster[2] && i + 2 < getDifficulty()[0]) {
                                 if (takeVerticalPatternAction(playerRevealedBoard, i, j, game))
                                     return;
                             }
                         }
                     }
-
-              }
+                    //Search for horizontal patterns containing 2 cells
+                    if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == mönster[0] && j + 1 < getDifficulty()[0]) {
+                        if (playerRevealedBoard[i][j + 1] != null && playerRevealedBoard[i][j + 1] == mönster[1] && mönster.length == 2) {
+                            if (takeHorizontalPatternAction(playerRevealedBoard, i, j, game))
+                                return;
+                        }
+                    }
+                    //Search for vertical patterns containing 2 cells
+                    if (playerRevealedBoard[i][j] != null && playerRevealedBoard[i][j] == mönster[0] && i + 1 < getDifficulty()[0]) {
+                        if (playerRevealedBoard[i + 1][j] != null && playerRevealedBoard[i + 1][j] == mönster[1] && mönster.length == 2) {
+                            if (takeVerticalPatternAction(playerRevealedBoard, i, j, game))
+                                return;
+                        }
+                    }
+                }
             }
-
-
-
-
 
 
         Point startLocation = new Point(0, 0);
@@ -123,19 +140,6 @@ public class BasicSweeperBot implements SweeperBot {
                 return;
             startLocation = getNextLocation(startLocation);
         } while (startLocation != null);
-
-        //Hur hittar jag ett mönster?
-        //Var ska jag starta?
-        //1,2,1
-
-        /**
-         * A small step for man, a giant leap for mankind :O
-         *
-         *
-         */
-
-        // Hitta en etta, kontrollera om närsta är tvåa, kontrollera om nästa är en etta
-
         //This is the last resort when we are desperate for progression
         System.out.println("TIME FOR RANDOM SWEEP!!!");
         int row;
@@ -148,11 +152,22 @@ public class BasicSweeperBot implements SweeperBot {
         game.takeAutomatedAction(ACTION_SWEEP, row, col);
     }
 
+    /**
+     * If a vertical patterns was found, the method checks if the cells that are supposed to be either swept of flagged are grass,
+     * if that is the case an action will be performed on that specific cell
+     * @param playerRevealedBoard Double[][] illustrating the gameboard.
+     *                            null --> not swept cell
+     * @param i position on the vertical line
+     * @param j position on the horizontal line
+     * @param game an instance of the gui
+     * @return boolean, if true an action has been performed on a cell
+     *                  if false no action has been performed
+     */
     private boolean takeVerticalPatternAction(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
-        //1,3,2 flaggar
+        //1,3,2
         if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i + 1][j] == 3 && playerRevealedBoard[i + 2][j] == 2) {
             if (j - 1 >= 0 && i + 2 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i+2][j-1] == null) {
+                if (playerRevealedBoard[i + 2][j - 1] == null) {
                     game.takeAutomatedAction(ACTION_FLAG, i + 2, j - 1);
                     return true;
                 }
@@ -163,37 +178,121 @@ public class BasicSweeperBot implements SweeperBot {
                     return true;
                 }
             }
+            return VerticalEightSweep(playerRevealedBoard, i, j, game);
 
         }
         //1,2,1
-        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i+1][j] == 2 && playerRevealedBoard[i+2][j] == 1) {
-            if (j - 1 >= 0 && i + 1 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i + 1][j - 1] == null) {
-                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j - 1);
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i + 1][j] == 2 && playerRevealedBoard[i + 2][j] == 1) {
+            return VerticalEightSweep(playerRevealedBoard, i, j, game);
+        }
+        //1,4 2,5 3,6
+        if ((playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i + 1][j] == 4) ||
+                (playerRevealedBoard[i][j] == 2 && playerRevealedBoard[i + 1][j] == 5) ||
+                (playerRevealedBoard[i][j] == 3 && playerRevealedBoard[i + 1][j] == 6) && mönster.length == 2) {
+            if (i + 2 < getDifficulty()[0]) {
+                if (i - 1 >= 0 && playerRevealedBoard[i + 2][j - 1] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i + 2, j - 1);
                     return true;
-
-
+                }
+                if (playerRevealedBoard[i + 2][j] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i + 2, j);
+                    return true;
+                }
+                if (j + 1 < getDifficulty()[0] && playerRevealedBoard[i + 2][j + 1] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i + 2, j + 1);
+                    return true;
                 }
             }
-            if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i + 1][j + 1] == null) {
-                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
+            if (i - 1 >= 0) {
+                if (j - 1 >= 0 && playerRevealedBoard[i - 1][j - 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j - 1);
                     return true;
-
-
-
+                }
+                if (playerRevealedBoard[i - 1][j] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j);
+                    return true;
+                }
+                if (j + 1 < getDifficulty()[0] && playerRevealedBoard[i - 1][j + 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+                    return true;
                 }
             }
+
         }
         return false;
     }
 
+    /**
+     * the vertical patterns (1,3,2) and (1,2,1) sweeps the same cells. Therefore the cells that are supposed to be swept
+     * are checked if they are null, if not the cells will be swept.
+     * @param playerRevealedBoard Double[][] illustrating the gameboard.
+     *                            null --> not swept cell
+     * @param i position on the vertical line
+     * @param j position on the horizontal line
+     * @param game an instance of the gui
+     * @return boolean, if true an action has been performed on a cell
+     *                  if false no action has been performed
+     */
+    private boolean VerticalEightSweep(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
+        if (j - 1 >= 0 && i + 1 < getDifficulty()[0]) {
+            if (playerRevealedBoard[i + 1][j - 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 1, j - 1);
+                return true;
+            }
+        }
+        if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
+            if (playerRevealedBoard[i + 1][j + 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
+                return true;
+            }
+        }
+        if (i - 1 >= 0) {
+            if (j + 1 < getDifficulty()[0] && playerRevealedBoard[i - 1][j + 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+                return true;
+            }
+            if (playerRevealedBoard[i - 1][j] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i - 1, j);
+                return true;
+            }
+            if (j - 1 >= 0 && playerRevealedBoard[i - 1][j - 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i - 1, j - 1);
+                return true;
+            }
 
+        }
+        if (i + 3 < getDifficulty()[0]) {
+            if (j + 1 < getDifficulty()[0] && playerRevealedBoard[i + 3][j + 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 3, j + 1);
+                return true;
+            }
+            if (playerRevealedBoard[i + 3][j] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 3, j);
+                return true;
+            }
+            if (j - 1 >= 0 && playerRevealedBoard[i + 3][j - 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 3, j - 1);
+                return true;
+            }
+        }
+        return false;
+    }
+    /**
+     * If a horizontal patterns was found, the method checks if the cells that are supposed to be either swept of flagged are grass,
+     * if that is the case an action will be performed on that specific cell
+     * @param playerRevealedBoard Double[][] illustrating the gameboard.
+     *                            null --> not swept cell
+     * @param i position on the vertical line
+     * @param j position on the horizontal line
+     * @param game an instance of the gui
+     * @return boolean, if true an action has been performed on a cell
+     *                  if false no action has been performed
+     */
     private boolean takeHorizontalPatternAction(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
-        //1,3,2 flaggar
-        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 3 && playerRevealedBoard[i][j + 2] == 2) {
+        //1,3,2
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j + 1] == 3 && playerRevealedBoard[i][j + 2] == 2) {
             if (i - 1 >= 0 && j + 2 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i-1][j+2] == null) {
+                if (playerRevealedBoard[i - 1][j + 2] == null) {
                     game.takeAutomatedAction(ACTION_FLAG, i - 1, j + 2);
                     return true;
                 }
@@ -204,20 +303,99 @@ public class BasicSweeperBot implements SweeperBot {
                     return true;
                 }
             }
+            return HorizontalEightSweep(playerRevealedBoard, i, j, game);
         }
         //1,2,1
-        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j+1] == 2 && playerRevealedBoard[i][j + 2] == 1) {
-            if (i - 1 >= 0 && j + 1 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i - 1][j + 1] == null) {
-                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+        if (playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j + 1] == 2 && playerRevealedBoard[i][j + 2] == 1) {
+            return HorizontalEightSweep(playerRevealedBoard, i, j, game);
+        }
+        // 1,4 & 2,5 & 3,6
+        if ((playerRevealedBoard[i][j] == 1 && playerRevealedBoard[i][j + 1] == 4) ||
+                (playerRevealedBoard[i][j] == 2 && playerRevealedBoard[i][j + 1] == 5) ||
+                (playerRevealedBoard[i][j] == 3 && playerRevealedBoard[i][j + 1] == 6) && mönster.length == 2) {
+            if (j + 2 < getDifficulty()[0]) {
+                if (i - 1 >= 0 && playerRevealedBoard[i - 1][j + 2] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i - 1, j + 2);
+                    return true;
+                }
+                if (playerRevealedBoard[i][j + 2] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i, j + 2);
+                    return true;
+                }
+                if (i + 1 < getDifficulty()[0] && playerRevealedBoard[i + 1][j + 2] == null) {
+                    game.takeAutomatedAction(ACTION_FLAG, i + 1, j + 2);
                     return true;
                 }
             }
-            if (i + 1 < getDifficulty()[0] && j + 1 < getDifficulty()[0]) {
-                if (playerRevealedBoard[i + 1][j + 1] == null) {
-                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
+            if (j - 1 >= 0) {
+                if (i - 1 >= 0 && playerRevealedBoard[i - 1][j - 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i - 1, j - 1);
                     return true;
                 }
+                if (playerRevealedBoard[i][j - 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i, j - 1);
+                    return true;
+                }
+                if (i + 1 < getDifficulty()[0] && playerRevealedBoard[i + 1][j - 1] == null) {
+                    game.takeAutomatedAction(ACTION_SWEEP, i + 1, j - 1);
+                    return true;
+                }
+            }
+
+        }
+        return false;
+    }
+    /**
+     * the vertical patterns (1,3,2) and (1,2,1) sweeps the same cells. Therefore the cells that are supposed to be swept
+     * are checked if they are null, if not the cells will be swept.
+     * @param playerRevealedBoard Double[][] illustrating the gameboard.
+     *                            null --> not swept cell
+     * @param i position on the vertical line
+     * @param j position on the horizontal line
+     * @param game an instance of the gui
+     * @return boolean, if true an action has been performed on a cell
+     *                  if false no action has been performed
+     */
+    private boolean HorizontalEightSweep(Double[][] playerRevealedBoard, int i, int j, MyGUISweeper game) {
+        if (i - 1 >= 0 && j + 1 < getDifficulty()[0]) {
+            if (playerRevealedBoard[i - 1][j + 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 1);
+                return true;
+            }
+        }
+        if (j + 1 < getDifficulty()[0] && i + 1 < getDifficulty()[0]) {
+            if (playerRevealedBoard[i + 1][j + 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 1);
+                return true;
+            }
+        }
+        if (j - 1 >= 0) {
+            if (i + 1 < getDifficulty()[0] && playerRevealedBoard[i + 1][j - 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 1, j - 1);
+                return true;
+            }
+            if (playerRevealedBoard[i][j - 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i, j - 1);
+                return true;
+            }
+            if (i - 1 >= 0 && playerRevealedBoard[i - 1][j - 1] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i - 1, j - 1);
+                return true;
+            }
+
+        }
+        if (j + 3 < getDifficulty()[0]) {
+            if (i + 1 < getDifficulty()[0] && playerRevealedBoard[i + 1][j + 3] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i + 1, j + 3);
+                return true;
+            }
+            if (playerRevealedBoard[i][j + 3] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i, j + 3);
+                return true;
+            }
+            if (i - 1 >= 0 && playerRevealedBoard[i - 1][j + 3] == null) {
+                game.takeAutomatedAction(ACTION_SWEEP, i - 1, j + 3);
+                return true;
             }
         }
         return false;
@@ -237,7 +415,6 @@ public class BasicSweeperBot implements SweeperBot {
      *                            1-8 -> Number of adjacent bombs
      * @param location            Point to analyze
      * @return boolean telling the caller if an action could be performed
-     *
      */
     private boolean takeSafeBasicActionIfPossible(MyGUISweeper game, Double[][] playerRevealedBoard, Point location) {
         Double cellValue = playerRevealedBoard[location.x][location.y];
