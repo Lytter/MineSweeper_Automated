@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b34b8599-b41a-4f26-8775-46e4cc5fd239" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/desktop.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/BasicSweeperBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/BasicSweeperBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/desktop.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/testBoardEasy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/testBoardEasy.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Engine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/GameStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/GameStatistics.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/desktop.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/testBoardEasy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/testBoardEasy.txt" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +36,6 @@
   <component name="ProjectId" id="1S2evTznNoT6bUkq4SvN4TdnfOR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -63,18 +57,6 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\My Drive\Programmering_2\GyaMinSweeper\res" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.BasicSweeperBot">
     <configuration name="BasicSweeperBot" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -159,6 +141,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -251,13 +234,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix av flagor i gui" />

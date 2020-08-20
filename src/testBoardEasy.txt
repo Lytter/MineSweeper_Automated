@@ -4,12 +4,12 @@
 # 'x' represents a clear position
 # '*' represents a bomb
 
+**x*x*xx*
+*xxxxxx**
 xxxxxxxxx
 xxxxxxxxx
 xxxxxxxxx
 xxxxxxxxx
 xxxxxxxxx
-xxxxxxxxx
-xxxxxxxxx
-xxxxxxxxx
-xxxxxxxxx
+*xxxxxxxx
+*xxxxxxxx
