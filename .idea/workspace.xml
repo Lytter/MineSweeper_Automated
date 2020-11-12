@@ -2,19 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b34b8599-b41a-4f26-8775-46e4cc5fd239" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Engine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/Engine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/GameStatistics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/minesweeper/GameStatistics.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/BasicSweeperBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/BasicSweeperBot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/testBoardEasy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/testBoardEasy.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/GroundButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/MyGUISweeper$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/MyGUISweeper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/RandomBotSweeper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/RandomBotSweeper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SimplestPossibleBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SimplestPossibleBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SweeperBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GyaMineSweeper/barefoot/sweepervariants/SweeperBot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Constants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/Engine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/GameStatistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/minesweeper/GameStatistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/minesweeper/desktop.ini" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/BasicSweeperBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/GroundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/gui/GroundButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/gui/MyGUISweeper.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/MyGUISweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/gui/MyGUISweeper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/RandomBotSweeper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SimplestPossibleBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/barefoot/sweepervariants/SweeperBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/testBoardEasy.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/testBoardEasy.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,11 +59,12 @@
     <property name="settings.editor.selected.configurable" value="ics" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="J:\Min enhet\2020-2021\Programmering 2020-2021\MineSweeper_Automated_2020-11-12\src\barefoot\sweepervariants\gui" />
+      <recent name="G:\My Drive\Programmering_2\GyaMinSweeper\res" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\My Drive\GYA\GyaMinSweeper\src\barefoot\sweepervariants" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\My Drive\Programmering_2\GyaMinSweeper\res" />
     </key>
   </component>
   <component name="RunManager" selected="Application.BasicSweeperBot">
@@ -64,7 +73,7 @@
       <module name="GyaMineSweeper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="barefoot.sweepervariants.*" />
+          <option name="PATTERN" value="barefoot.sweepervariants.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,7 +86,7 @@
       <module name="GyaMineSweeper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="barefoot.sweepervariants.*" />
+          <option name="PATTERN" value="barefoot.sweepervariants.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,7 +99,7 @@
       <module name="GyaMineSweeper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="barefoot.sweepervariants.*" />
+          <option name="PATTERN" value="barefoot.sweepervariants.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,7 +112,7 @@
       <module name="GyaMineSweeper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="barefoot.sweepervariants.*" />
+          <option name="PATTERN" value="barefoot.sweepervariants.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -116,7 +125,7 @@
       <module name="GyaMineSweeper" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="barefoot.sweepervariants.*" />
+          <option name="PATTERN" value="barefoot.sweepervariants.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -134,10 +143,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.BasicSweeperBot" />
+        <item itemvalue="Application.SimplestPossibleBot" />
         <item itemvalue="Application.RandomBotSweeper" />
         <item itemvalue="Application.MyGUISweeper" />
         <item itemvalue="Application.Exempel_1" />
-        <item itemvalue="Application.SimplestPossibleBot" />
       </list>
     </recent_temporary>
   </component>
@@ -251,59 +260,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="1,2,1 och 1,,3,2" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="505" height="466" key="DebuggerActiveHint" timestamp="1579251065224">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="214" key="GridCell.Tab.0.bottom" timestamp="1605180009739">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="505" height="466" key="DebuggerActiveHint/0.0.1920.1080@0.0.1920.1080" timestamp="1579251065224" />
-    <state width="1323" height="229" key="GridCell.Tab.0.bottom" timestamp="1579336370210">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="214" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605180009739" />
+    <state width="1877" height="214" key="GridCell.Tab.0.center" timestamp="1605180009739">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1323" height="229" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1579336370210" />
-    <state width="1877" height="362" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878094" />
-    <state width="1323" height="229" key="GridCell.Tab.0.center" timestamp="1579336370210">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="214" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605180009739" />
+    <state width="1877" height="214" key="GridCell.Tab.0.left" timestamp="1605180009739">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1323" height="229" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1579336370210" />
-    <state width="1877" height="362" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878093" />
-    <state width="1323" height="229" key="GridCell.Tab.0.left" timestamp="1579336370210">
-      <screen x="0" y="0" width="1366" height="768" />
+    <state width="1877" height="214" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605180009739" />
+    <state width="1877" height="214" key="GridCell.Tab.0.right" timestamp="1605180009739">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1323" height="229" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1579336370210" />
-    <state width="1877" height="362" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878092" />
-    <state width="1323" height="229" key="GridCell.Tab.0.right" timestamp="1579336370210">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state width="1323" height="229" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1579336370210" />
-    <state width="1877" height="362" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878093" />
-    <state width="1877" height="362" key="GridCell.Tab.1.bottom" timestamp="1579291878094">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.bottom/0.0.1366.768@0.0.1366.768" timestamp="1579286286608" />
-    <state width="1877" height="362" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878094" />
-    <state width="1877" height="362" key="GridCell.Tab.1.center" timestamp="1579291878094">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.center/0.0.1366.768@0.0.1366.768" timestamp="1579286286607" />
-    <state width="1877" height="362" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878094" />
-    <state width="1877" height="362" key="GridCell.Tab.1.left" timestamp="1579291878094">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.left/0.0.1366.768@0.0.1366.768" timestamp="1579286286606" />
-    <state width="1877" height="362" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878094" />
-    <state width="1877" height="362" key="GridCell.Tab.1.right" timestamp="1579291878094">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1323" height="238" key="GridCell.Tab.1.right/0.0.1366.768@0.0.1366.768" timestamp="1579286286607" />
-    <state width="1877" height="362" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1579291878094" />
-    <state x="390" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1579333278328">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="390" y="213" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1579333278328" />
-    <state x="592" y="39" key="refactoring.ChangeSignatureDialog" timestamp="1579284120429">
-      <screen x="0" y="0" width="1366" height="768" />
-    </state>
-    <state x="592" y="39" key="refactoring.ChangeSignatureDialog/0.0.1366.768@0.0.1366.768" timestamp="1579284120429" />
-    <state x="832" y="151" key="refactoring.ChangeSignatureDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1579252526018" />
+    <state width="1877" height="214" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605180009739" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">

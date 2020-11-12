@@ -1,6 +1,7 @@
 package barefoot.sweepervariants;
 
 import barefoot.minesweeper.Constants;
+import barefoot.sweepervariants.gui.MyGUISweeper;
 
 import java.awt.*;
 import java.util.Random;
@@ -50,7 +51,7 @@ public class BasicSweeperBot implements SweeperBot {
     public boolean playAgain(MyGUISweeper game) {
         System.out.println("GAME DONE");
         System.out.println(game.getGameStatistics().toString());
-        return ++gameCounter < 100;
+        return ++gameCounter < maxRounds;
     }
 
     /**

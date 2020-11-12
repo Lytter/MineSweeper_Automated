@@ -16,20 +16,20 @@ import static barefoot.minesweeper.Constants.*;
  */
 public class Engine {
     //game matrix, true = bomb, false = no bomb
-    private boolean[][] gameMatrix;
+    private final boolean[][] gameMatrix;
     //the probability matrix, 0 = bomb, -1 = no bomb in sight, 1-8 = adjecent bombs
-    private int[][] probabilityMatrix;
+    private final int[][] probabilityMatrix;
     //player matrix, null = not revieled yet, else same as probability matrix
     private Double[][] playerRevealedMatrix;
 
     //Number of rows in matrix
-    private int rows;
+    private final int rows;
     //Number of cols in matrix
-    private int cols;
+    private final int cols;
     //Data structure to handle deep recursion
-    private Stack<int[]> latestPositions;
+    private final Stack<int[]> latestPositions;
     //Data about the current game
-    private GameStatistics gameStats;
+    private final GameStatistics gameStats;
 
     /**
      * Constructs an engine for playing a game of MineSweeper

@@ -1,6 +1,7 @@
 package barefoot.sweepervariants;
 
 import barefoot.minesweeper.Constants;
+import barefoot.sweepervariants.gui.MyGUISweeper;
 
 import java.util.Random;
 
@@ -46,7 +47,7 @@ public class SimplestPossibleBot implements SweeperBot {
         Random random = new Random();
         int row = random.nextInt(Constants.GAME_EASY[1]);
         int col = random.nextInt(Constants.GAME_EASY[1]);
-        if (random.nextInt(9)%2 == 1)
+        if (random.nextBoolean())
             game.takeAutomatedAction(Constants.ACTION_SWEEP,row,col);
         else
             game.takeAutomatedAction(Constants.ACTION_FLAG, row, col);

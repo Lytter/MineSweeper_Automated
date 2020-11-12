@@ -1,5 +1,7 @@
 package barefoot.sweepervariants;
 
+import barefoot.sweepervariants.gui.MyGUISweeper;
+
 public interface SweeperBot {
     /**
      * Implement to set Difficulty for the game

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="barefoot.sweepervariants.MyGUISweeper">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="barefoot.sweepervariants.gui.MyGUISweeper">
   <grid id="27dc6" binding="mainPanel" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
     <constraints>
       <xy x="20" y="20" width="775" height="544"/>
@@ -52,7 +52,7 @@
             </properties>
             <border type="line" title="Minefield"/>
             <children>
-              <component id="83e13" class="javax.swing.JButton" binding="button1" default-binding="true">
+              <component id="83e13" class="javax.swing.JButton" default-binding="true">
                 <constraints/>
                 <properties>
                   <icon value="grass.png"/>

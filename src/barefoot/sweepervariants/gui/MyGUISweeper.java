@@ -1,7 +1,8 @@
-package barefoot.sweepervariants;
+package barefoot.sweepervariants.gui;
 
 import barefoot.minesweeper.Engine;
 import barefoot.minesweeper.GameStatistics;
+import barefoot.sweepervariants.SweeperBot;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -13,13 +14,12 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import static barefoot.minesweeper.Constants.*;
-import static barefoot.sweepervariants.GroundButton.GROUND_FLAG;
+import static barefoot.sweepervariants.gui.GroundButton.GROUND_FLAG;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class MyGUISweeper {
     private JPanel mainPanel;
     private JLabel bombLabel;
-    private JButton button1;
     private JPanel mineField;
     private JLabel roundLabel;
 
@@ -27,7 +27,7 @@ public class MyGUISweeper {
     private int[] difficulty;
     private Image bomb, ballon;
     //BOT
-    private SweeperBot automationBot;
+    private final SweeperBot automationBot;
 
     /**
      * Starting point for any automatedSweeperBot.

@@ -7,7 +7,7 @@ public class GameStatistics {
     public int gameStatus = Constants.GAME_INPROGRESS;
     public int turnsTaken = 0;
     //Time in milliseconds
-    private long gameStarted;
+    private final long gameStarted;
     private long gameEnded = 0;
 
     public GameStatistics() {

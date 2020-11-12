@@ -1,4 +1,4 @@
-package barefoot.sweepervariants;
+package barefoot.sweepervariants.gui;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -13,8 +13,8 @@ public class GroundButton extends JButton {
     public final static int GROUND_FLAG = 5;
 
     int groundType;
-    private int height;
-    private int width;
+    private final int height;
+    private final int width;
 
     private static Image grass;
     private static Image bomb;
@@ -43,7 +43,7 @@ public class GroundButton extends JButton {
         }
     }
 
-    int updateType(Double type) {
+    void updateType(Double type) {
         int originalType = groundType;
         if (type == null) groundType = GROUND_GRASS;
         else {
@@ -54,7 +54,7 @@ public class GroundButton extends JButton {
         }
 
         if (originalType == groundType)
-            return groundType;
+            return;
         Image img;
         switch (groundType) {
             case GROUND_GRASS:
@@ -85,6 +85,5 @@ public class GroundButton extends JButton {
         }
         this.setPreferredSize(new Dimension(width, height));
         this.repaint();
-        return groundType;
     }
 }

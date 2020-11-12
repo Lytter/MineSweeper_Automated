@@ -1,5 +1,7 @@
 package barefoot.sweepervariants;
 
+import barefoot.sweepervariants.gui.MyGUISweeper;
+
 import java.util.Random;
 
 import static barefoot.minesweeper.Constants.*;
@@ -53,7 +55,7 @@ public class RandomBotSweeper implements SweeperBot{
             row = random.nextInt(playerRevealedBoard.length);
             col = random.nextInt(playerRevealedBoard[row].length);
         } while (playerRevealedBoard[row][col] != null);
-        boolean makeFlag = new Random().nextInt(5) % 5 != 1;
+        boolean makeFlag = new Random().nextBoolean();
         if (makeFlag)
             game.takeAutomatedAction(ACTION_SWEEP, row, col);
         else
